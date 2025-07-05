@@ -1,4 +1,4 @@
-// account.cpp
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <fstream>
@@ -70,7 +70,7 @@ void Hesap::hareketEkle(string islem)
     hareketler.push_back(tarih.str() + ": " + islem);
 }
 
-// Hareketleri gösterme
+// Hareketleri gÃ¶sterme
 void Hesap::hareketleriGoster() const
 {
     cout << "\n---ISLEM GECMISI---\n";
@@ -89,7 +89,7 @@ void Hesap::dosyayaKaydet()
     if (dosya.is_open())
     {
         dosya << hesapNo << endl;
-        dosya << sifreHash << endl; // Hash'lenmiþ þifreyi kaydet
+        dosya << sifreHash << endl; // Hash'lenmiÃ¾ Ã¾ifreyi kaydet
         dosya << bakiye << endl;
         for (const string& hareket : hareketler)
         {
@@ -113,7 +113,7 @@ Hesap Hesap::dosyadanOku(string hesapNo)
     if (dosya.is_open())
     {
         getline(dosya, hesapNo);
-        getline(dosya, sifreHash); // Hash'lenmiþ þifreyi oku
+        getline(dosya, sifreHash); // Hash'lenmiÃ¾ Ã¾ifreyi oku
         dosya >> bakiye;
         dosya.ignore();
 
@@ -128,8 +128,8 @@ Hesap Hesap::dosyadanOku(string hesapNo)
         cerr << "Hesap bulunamadi!\n";
     }
 
-    Hesap hesap(hesapNo, "", bakiye); // Þifre boþ geçiliyor, çünkü hash'ini zaten okuduk
-    hesap.sifreHash = sifreHash; // Hash'lenmiþ þifreyi ata
+    Hesap hesap(hesapNo, "", bakiye); // Ãžifre boÃ¾ geÃ§iliyor, Ã§Ã¼nkÃ¼ hash'ini zaten okuduk
+    hesap.sifreHash = sifreHash; // Hash'lenmiÃ¾ Ã¾ifreyi ata
     hesap.hareketler = hareketler;
     return hesap;
 }
